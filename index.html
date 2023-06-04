@@ -5,15 +5,13 @@
     <meta charset="UTF-8" />
     <title>BoatView</title>
     <link rel="stylesheet" href="Styles/styles.css" />
-    <script src="BarentsWatchAPIHandler.js"></script>
-    <script src="getToken.js"></script>
   </head>
   <body>
     <!-- Sidebar -->
     <div class="sidebar">
       <h2>Temporary content for sidebar.</h2>
       <!-- <button onclick="fetchRequestBarentsWatchAPIToken()">SBButton</button> -->
-      <button onclick="">SBButton</button>
+      <button onclick="buttonGetToken()">Click me</button>
       <!-- Main content -->
     </div>
     <div class="content">
@@ -29,5 +27,13 @@
       </iframe>
       <br />
     </div>
+
+    <script>
+      async function buttonGetToken() {
+        const response = await fetch("http://localhost:3000/get-token");
+        const token = await response.text();
+        document.getElementById("token").innerHTML = token;
+      }
+    </script>
   </body>
 </html>
